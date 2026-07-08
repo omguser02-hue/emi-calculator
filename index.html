@@ -1,48 +1,46 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta name="description" content="Free Online EMI Calculator - Personal Loan, Home Loan, Car Loan ka monthly EMI aur total interest turant calculate karein.">
-<meta name="keywords" content="emi calculator, loan emi, personal loan calculator, home loan emi">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EMI Calculator - Free Loan EMI Calculator</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Free Online EMI Calculator - Personal Loan, Home Loan, Car Loan ka monthly EMI aur total interest turant calculate karein.">
+  <title>EMI Calculator - Free Loan EMI Calculator India</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
       min-height: 100vh;
       padding: 20px;
     }
     .container {
-      max-width: 650px;
+      max-width: 680px;
       margin: 40px auto;
       background: white;
-      padding: 35px;
+      padding: 40px 30px;
       border-radius: 20px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
       text-align: center;
     }
     h1 { 
       color: #2c3e50; 
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+      font-size: 2.6rem;
+      margin-bottom: 8px;
     }
-    p { color: #555; margin-bottom: 25px; font-size: 1.1rem; }
+    .tagline { color: #555; margin-bottom: 30px; font-size: 1.15rem; }
     label {
       display: block;
       text-align: left;
-      margin: 15px 0 5px;
-      font-weight: bold;
-      color: #333;
+      margin: 18px 0 8px;
+      font-weight: 600;
+      color: #2c3e50;
     }
     input {
       width: 100%;
-      padding: 14px;
-      border: 2px solid #ddd;
-      border-radius: 10px;
+      padding: 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
       font-size: 17px;
     }
     button {
@@ -50,38 +48,45 @@
       color: white;
       padding: 16px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 18px;
       font-weight: bold;
-      margin: 20px 0;
+      margin: 25px 0 15px;
       cursor: pointer;
       width: 100%;
+      transition: 0.3s;
     }
-    button:hover { background: #219a52; }
+    button:hover { background: #219653; transform: translateY(-2px); }
     .result {
       background: #e8f5e9;
       padding: 25px;
-      border-radius: 12px;
-      margin-top: 20px;
-      font-size: 1.4rem;
+      border-radius: 15px;
+      margin: 20px 0;
+      font-size: 1.35rem;
       font-weight: bold;
       color: #27ae60;
       display: none;
-      border: 2px solid #27ae60;
+      border: 3px solid #27ae60;
     }
-    .ads {
-      margin-top: 30px;
-      padding: 15px;
+    .offers {
+      margin-top: 35px;
+      padding: 20px;
       background: #f8f9fa;
-      border-radius: 10px;
-      font-size: 15px;
+      border-radius: 12px;
+      font-size: 15.5px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #ddd;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>💰 EMI Calculator</h1>
-    <p>Personal Loan, Home Loan, Car Loan ka EMI turant calculate karo</p>
+    <p class="tagline">Personal Loan, Home Loan, Car Loan ka EMI turant jaano</p>
 
     <label>Loan Amount (₹)</label>
     <input type="number" id="amount" value="500000">
@@ -96,12 +101,16 @@
 
     <div id="result" class="result"></div>
 
-    <div class="ads">
-      <strong>Best Loan Offers:</strong><br>
+    <div class="offers">
+      <strong>Best Loan Offers:</strong><br><br>
       <a href="https://www.paisabazaar.com/personal-loan/" target="_blank">→ Paisabazaar pe Loan Apply Karein</a><br><br>
-      <a href="https://www.bankbazaar.com/personal-loan.html" target="_blank">→ BankBazaar pe Best Rates Dekhein</a>
+      <a href="https://www.bankbazaar.com/personal-loan.html" target="_blank">→ BankBazaar pe Sabse Acchi Rate Dekhein</a>
     </div>
   </div>
+
+  <footer>
+    Made with ❤️ for Indians • Free Tool
+  </footer>
 
   <script>
     function calculateEMI() {
@@ -110,7 +119,7 @@
       const months = parseFloat(document.getElementById('months').value);
 
       if (!amount || !rate || !months) {
-        alert("Sab fields bharein!");
+        alert("Sab fields bharein please!");
         return;
       }
 
@@ -121,15 +130,11 @@
       const resultDiv = document.getElementById('result');
       resultDiv.style.display = 'block';
       resultDiv.innerHTML = `
-        <strong>Monthly EMI: ₹${emi.toFixed(2)}</strong><br><br>
+        Monthly EMI: <span style="color:#27ae60">₹${emi.toFixed(2)}</span><br><br>
         Total Amount: ₹${totalPay.toFixed(2)}<br>
         Total Interest: ₹${totalInterest.toFixed(2)}
       `;
     }
   </script>
-  <footer style="text-align:center; margin-top:50px; color:#ddd; font-size:14px;">
-  Made with ❤️ for Indians | 
-  <a href="https://github.com/omguser02-hue/emi-calculator" style="color:#ddd;">GitHub</a>
-</footer>
 </body>
 </html>
