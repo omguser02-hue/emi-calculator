@@ -3,33 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EMI Calculator - Loan EMI aur Interest Calculator</title>
+  <title>EMI Calculator - Loan EMI Calculate Karein</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
   <div class="container">
     <h1>💰 EMI Calculator</h1>
-    <p>Personal Loan, Home Loan, Car Loan ka EMI turant calculate karo</p>
+    <p>Personal, Home, Car Loan ka EMI aur Interest turant jaano</p>
 
     <div class="calculator">
       <label>Loan Amount (₹)</label>
-      <input type="number" id="amount" value="500000" placeholder="500000">
+      <input type="number" id="amount" value="500000">
 
-      <label>Interest Rate (% per annum)</label>
-      <input type="number" id="rate" value="10.5" step="0.1" placeholder="10.5">
+      <label>Interest Rate (% saalana)</label>
+      <input type="number" id="rate" value="10.5" step="0.1">
 
-      <label>Tenure (Months)</label>
-      <input type="number" id="months" value="36" placeholder="36">
+      <label>Tenure (Mahine)</label>
+      <input type="number" id="months" value="36">
 
-      <button onclick="calculateEMI()">Calculate EMI</button>
+      <button onclick="calculateEMI()">EMI Calculate Karein</button>
 
       <div id="result" class="result"></div>
     </div>
 
-    <div class="affiliate">
-      <p>Best Loan Offers: <a href="https://www.paisabazaar.com" target="_blank">Paisabazaar</a> | 
-      <a href="https://www.bankbazaar.com" target="_blank">BankBazaar</a></p>
+    <div class="ads-section">
+      <p><strong>Best Loan Offers:</strong><br>
+      <a href="https://www.paisabazaar.com/personal-loan/" target="_blank">Paisabazaar pe Loan Apply Karein →</a><br>
+      <a href="https://www.bankbazaar.com/personal-loan.html" target="_blank">BankBazaar pe Best Rate Dekhein →</a>
+      </p>
     </div>
   </div>
 
