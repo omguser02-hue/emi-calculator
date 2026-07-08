@@ -3,38 +3,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EMI Calculator - Loan EMI Calculate Karein</title>
+  <title>EMI Calculator - Free Loan EMI Calculator</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      max-width: 650px;
+      margin: 40px auto;
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      text-align: center;
+    }
+    h1 { 
+      color: #2c3e50; 
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    p { color: #555; margin-bottom: 25px; font-size: 1.1rem; }
+    label {
+      display: block;
+      text-align: left;
+      margin: 15px 0 5px;
+      font-weight: bold;
+      color: #333;
+    }
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 17px;
+    }
+    button {
+      background: #27ae60;
+      color: white;
+      padding: 16px;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 20px 0;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover { background: #219a52; }
+    .result {
+      background: #e8f5e9;
+      padding: 25px;
+      border-radius: 12px;
+      margin-top: 20px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #27ae60;
+      display: none;
+      border: 2px solid #27ae60;
+    }
+    .ads {
+      margin-top: 30px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>💰 EMI Calculator</h1>
-    <p>Personal, Home, Car Loan ka EMI aur Interest turant jaano</p>
+    <p>Personal Loan, Home Loan, Car Loan ka EMI turant calculate karo</p>
 
-    <div class="calculator">
-      <label>Loan Amount (₹)</label>
-      <input type="number" id="amount" value="500000">
+    <label>Loan Amount (₹)</label>
+    <input type="number" id="amount" value="500000">
 
-      <label>Interest Rate (% saalana)</label>
-      <input type="number" id="rate" value="10.5" step="0.1">
+    <label>Interest Rate (% per annum)</label>
+    <input type="number" id="rate" value="10.5" step="0.1">
 
-      <label>Tenure (Mahine)</label>
-      <input type="number" id="months" value="36">
+    <label>Tenure (Months)</label>
+    <input type="number" id="months" value="36">
 
-      <button onclick="calculateEMI()">EMI Calculate Karein</button>
+    <button onclick="calculateEMI()">Calculate EMI</button>
 
-      <div id="result" class="result"></div>
-    </div>
+    <div id="result" class="result"></div>
 
-    <div class="ads-section">
-      <p><strong>Best Loan Offers:</strong><br>
-      <a href="https://www.paisabazaar.com/personal-loan/" target="_blank">Paisabazaar pe Loan Apply Karein →</a><br>
-      <a href="https://www.bankbazaar.com/personal-loan.html" target="_blank">BankBazaar pe Best Rate Dekhein →</a>
-      </p>
+    <div class="ads">
+      <strong>Best Loan Offers:</strong><br>
+      <a href="https://www.paisabazaar.com/personal-loan/" target="_blank">→ Paisabazaar pe Loan Apply Karein</a><br><br>
+      <a href="https://www.bankbazaar.com/personal-loan.html" target="_blank">→ BankBazaar pe Best Rates Dekhein</a>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    function calculateEMI() {
+      const amount = parseFloat(document.getElementById('amount').value);
+      const rate = parseFloat(document.getElementById('rate').value) / 1200;
+      const months = parseFloat(document.getElementById('months').value);
+
+      if (!amount || !rate || !months) {
+        alert("Sab fields bharein!");
+        return;
+      }
+
+      const emi = (amount * rate * Math.pow(1 + rate, months)) / (Math.pow(1 + rate, months) - 1);
+      const totalPay = emi * months;
+      const totalInterest = totalPay - amount;
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = `
+        <strong>Monthly EMI: ₹${emi.toFixed(2)}</strong><br><br>
+        Total Amount: ₹${totalPay.toFixed(2)}<br>
+        Total Interest: ₹${totalInterest.toFixed(2)}
+      `;
+    }
+  </script>
 </body>
 </html>
